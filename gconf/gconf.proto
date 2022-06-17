@@ -1,0 +1,26 @@
+syntax = "proto3";
+package gconf;
+option go_package = "/gconf";
+
+
+enum MsgType{
+    HEARTBEAT = 0;
+    SITUATION = 1;
+    TASK = 2;
+    FILE = 3;
+    COMMAND = 4;
+}
+
+message PBMessage{
+    int32 timestamp = 1;
+    string node = 2;
+    string label = 3;
+    string version = 4;
+    string hash = 5;
+    bytes raw = 6;
+}
+
+message PBFile{
+    string path = 1;
+    bytes content = 2;
+}
